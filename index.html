@@ -1,25 +1,987 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <title>我的个人主页</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 50px auto;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-      padding: 20px;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-  </style>
-</head>
-<body>
-  <h1>你好，我是 snappersontheprowl</h1>
-  <p>欢迎来到我的个人主页！</p>
-  <p>这里可以展示我的项目、博客和联系方式。</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ZhengLecheng / Snappersontheprowl 的个人主页，关注模拟集成电路、EDA、SPICE 仿真器源码学习、AI for EDA 与软件基础设施。"
+    />
+    <meta name="author" content="ZhengLecheng" />
+    <title>ZhengLecheng | Analog IC · EDA · AI for EDA</title>
+
+    <style>
+      :root {
+        --bg: #f7f8fb;
+        --surface: #ffffff;
+        --surface-2: #eef2f7;
+        --surface-3: #f8fafc;
+        --text: #101827;
+        --muted: #617086;
+        --line: #dfe5ee;
+        --accent: #0f766e;
+        --accent-2: #2563eb;
+        --accent-soft: #dff5f2;
+        --warm-soft: #fff1d6;
+        --green-soft: #e6f6df;
+        --max-width: 1120px;
+        --radius: 8px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "PingFang SC",
+          "Hiragino Sans GB",
+          "Microsoft YaHei",
+          Arial,
+          sans-serif;
+        color: var(--text);
+        background:
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(247, 248, 251, 0.98)
+          ),
+          var(--bg);
+        line-height: 1.72;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(calc(100% - 40px), var(--max-width));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(247, 248, 251, 0.9);
+        border-bottom: 1px solid rgba(223, 229, 238, 0.9);
+        backdrop-filter: blur(14px);
+      }
+
+      nav {
+        min-height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        font-size: 0.98rem;
+        font-weight: 760;
+        letter-spacing: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        color: var(--muted);
+        font-size: 0.92rem;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      main {
+        padding-bottom: 72px;
+      }
+
+      .hero {
+        min-height: calc(100vh - 66px);
+        padding: 74px 0 54px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) 330px;
+        gap: 68px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: #0f5f59;
+        font-size: 0.84rem;
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 780px;
+        font-size: clamp(3rem, 7vw, 5.7rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .handle {
+        display: block;
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: clamp(1.1rem, 2vw, 1.35rem);
+        font-weight: 580;
+      }
+
+      .hero-subtitle {
+        margin: 24px 0 0;
+        max-width: 760px;
+        color: #314156;
+        font-size: clamp(1.05rem, 2vw, 1.28rem);
+      }
+
+      .hero-summary {
+        margin: 18px 0 0;
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+        color: var(--text);
+        font-weight: 720;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .button.primary {
+        border-color: #101827;
+        background: #101827;
+        color: #fff;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+        border-color: #c6d1df;
+        box-shadow: 0 10px 24px rgba(16, 24, 39, 0.1);
+      }
+
+      .profile-panel {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.78);
+        padding: 20px;
+        box-shadow: 0 24px 70px rgba(16, 24, 39, 0.08);
+      }
+
+      .avatar {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 12px;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+      }
+
+      .profile-name {
+        margin: 16px 0 2px;
+        font-size: 1.08rem;
+        font-weight: 780;
+      }
+
+      .profile-meta {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .stats {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
+
+      .stat {
+        min-width: 0;
+        padding: 12px 8px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface-3);
+        text-align: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.1rem;
+        line-height: 1.1;
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.25;
+      }
+
+      section {
+        padding: 50px 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .section-heading {
+        margin-bottom: 24px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.68fr) minmax(240px, 0.32fr);
+        gap: 28px;
+        align-items: end;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: clamp(1.55rem, 3vw, 2.1rem);
+        line-height: 1.18;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .interest-grid,
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .interest-card,
+      .project-card,
+      .note-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .interest-card {
+        padding: 22px;
+        min-height: 178px;
+      }
+
+      .interest-card strong {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        background: var(--surface-2);
+        color: var(--accent);
+        font-size: 0.9rem;
+      }
+
+      .interest-card h3,
+      .project-card h3 {
+        margin: 0 0 8px;
+        font-size: 1.04rem;
+        line-height: 1.35;
+      }
+
+      .interest-card p,
+      .project-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-card {
+        min-height: 238px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-2px);
+        border-color: #c5d0df;
+        box-shadow: 0 16px 38px rgba(16, 24, 39, 0.08);
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-bottom: 16px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: var(--surface-2);
+        color: #506176;
+        font-size: 0.74rem;
+        font-weight: 720;
+      }
+
+      .tag.original {
+        background: var(--green-soft);
+        color: #25621e;
+      }
+
+      .tag.study {
+        background: var(--warm-soft);
+        color: #8a5300;
+      }
+
+      .tag.fork {
+        background: #e6edff;
+        color: #254ea2;
+      }
+
+      .project-meta {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .project-link {
+        margin-top: auto;
+        padding-top: 18px;
+        color: var(--accent-2);
+        font-weight: 760;
+        font-size: 0.91rem;
+      }
+
+      .note-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .note-card {
+        padding: 20px 22px;
+        display: grid;
+        grid-template-columns: 170px minmax(0, 1fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .note-label {
+        color: var(--muted);
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .note-card h3 {
+        margin: 0 0 7px;
+        font-size: 1.02rem;
+      }
+
+      .note-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      .contact-box {
+        padding: 28px;
+        border-radius: 14px;
+        background: #101827;
+        color: #fff;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .contact-box h2 {
+        margin: 0;
+        font-size: 1.55rem;
+        line-height: 1.2;
+      }
+
+      .contact-box p {
+        margin: 8px 0 0;
+        color: #c8d1df;
+        max-width: 720px;
+      }
+
+      .contact-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .contact-box .button {
+        border-color: rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
+      footer {
+        padding: 28px 0 48px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          min-height: auto;
+          grid-template-columns: 1fr;
+          gap: 34px;
+          padding-top: 64px;
+        }
+
+        .profile-panel {
+          max-width: 360px;
+        }
+
+        .section-heading {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .interest-grid,
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(calc(100% - 28px), var(--max-width));
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 48px;
+        }
+
+        .profile-panel {
+          max-width: none;
+        }
+
+        .note-card,
+        .contact-box {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-actions {
+          justify-content: flex-start;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d1117;
+          --surface: #121923;
+          --surface-2: #1a2432;
+          --surface-3: #111923;
+          --text: #edf2f7;
+          --muted: #9aa8ba;
+          --line: #263445;
+          --accent: #5eead4;
+          --accent-2: #8bb7ff;
+          --accent-soft: #123832;
+          --warm-soft: #3a2a0d;
+          --green-soft: #16331d;
+        }
+
+        body {
+          background:
+            linear-gradient(
+              180deg,
+              rgba(13, 17, 23, 0.92),
+              rgba(13, 17, 23, 0.98)
+            ),
+            var(--bg);
+        }
+
+        header {
+          background: rgba(13, 17, 23, 0.9);
+          border-bottom-color: rgba(38, 52, 69, 0.9);
+        }
+
+        .hero-subtitle {
+          color: #d6dde8;
+        }
+
+        .eyebrow {
+          color: #99f6e4;
+        }
+
+        .profile-panel {
+          background: rgba(18, 25, 35, 0.82);
+        }
+
+        .tag {
+          color: #c4cedc;
+        }
+
+        .tag.original {
+          color: #a7f3a0;
+        }
+
+        .tag.study {
+          color: #fcd58a;
+        }
+
+        .tag.fork {
+          background: #172a4a;
+          color: #9fc1ff;
+        }
+
+        .button.primary,
+        .contact-box {
+          background: #edf2f7;
+          color: #101827;
+          border-color: #edf2f7;
+        }
+
+        .contact-box p {
+          color: #465569;
+        }
+
+        .contact-box .button {
+          border-color: rgba(16, 24, 39, 0.2);
+          background: rgba(16, 24, 39, 0.08);
+          color: #101827;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <a class="brand" href="#">ZhengLecheng</a>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#focus">Focus</a>
+            <a href="#projects">Projects</a>
+            <a href="#notes">Notes</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="hero" id="about">
+        <div>
+          <div class="eyebrow">Analog IC · EDA · SPICE · AI for EDA</div>
+
+          <h1>
+            ZhengLecheng
+            <span class="handle">@Snappersontheprowl</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            关注模拟集成电路设计自动化、SPICE 类仿真器源码学习、EDA
+            工具链基础设施，以及面向电路设计的智能化工作流。
+          </p>
+
+          <p class="hero-summary">
+            这个主页会同步整理我的公开 GitHub
+            项目、学习仓库和技术笔记。目前主要围绕 Xyce、Cadence Virtuoso
+            相关桥接工具、模拟电路设计自动化平台、C++
+            并发基础设施与机器学习模型展开。
+          </p>
+
+          <div class="hero-actions">
+            <a
+              class="button primary"
+              href="https://github.com/Snappersontheprowl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Profile
+            </a>
+            <a class="button" href="#projects">查看项目</a>
+          </div>
+        </div>
+
+        <aside class="profile-panel" aria-label="GitHub 公开资料">
+          <img
+            class="avatar"
+            src="https://avatars.githubusercontent.com/u/127485553?v=4"
+            alt="Snappersontheprowl GitHub avatar"
+          />
+          <p class="profile-name">ZhengLecheng</p>
+          <p class="profile-meta">GitHub: Snappersontheprowl</p>
+          <div class="stats" role="group" aria-label="GitHub public stats">
+            <div class="stat">
+              <strong>8</strong>
+              <span>public repos</span>
+            </div>
+            <div class="stat">
+              <strong>5</strong>
+              <span>followers</span>
+            </div>
+            <div class="stat">
+              <strong>20</strong>
+              <span>following</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section id="focus">
+        <div class="section-heading">
+          <h2>当前关注方向</h2>
+          <p>
+            从公开仓库可以看出，最近的学习和建设重点集中在模拟电路设计自动化、仿真器、EDA
+            连接层与可复用软件组件。
+          </p>
+        </div>
+
+        <div class="interest-grid">
+          <article class="interest-card">
+            <strong>01</strong>
+            <h3>SPICE / Xyce 仿真器学习</h3>
+            <p>
+              通过 Xyce
+              源码学习仓库记录网表解析、器件建模、矩阵装配、非线性求解、构建安装与功能验证流程。
+            </p>
+          </article>
+
+          <article class="interest-card">
+            <strong>02</strong>
+            <h3>Analog EDA 工作流</h3>
+            <p>
+              关注 Cadence Virtuoso 桥接、AnalogGym
+              等项目，探索模拟/混合信号电路设计中的自动化接口和实验环境。
+            </p>
+          </article>
+
+          <article class="interest-card">
+            <strong>03</strong>
+            <h3>C++ / Python 基础设施</h3>
+            <p>
+              使用 C++17 构建可复用并发组件，用 Python
+              连接工具链、实验平台和机器学习模型，服务工程验证与研究探索。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-heading">
+          <h2>公开项目与学习仓库</h2>
+          <p>
+            原创仓库和 fork / study 仓库分开标记。更新时间来自当前 GitHub
+            公开页面和仓库 API。
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/Xyce_study"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag original">Original</span>
+              <span class="tag">Xyce</span>
+              <span class="tag">SPICE</span>
+              <span class="tag">Notes</span>
+            </div>
+            <h3>Xyce_study</h3>
+            <p>
+              用于学习 Xyce
+              仿真器源码、构建流程和基础验证方法的个人工作区，关注网表解析、器件建模、矩阵装配和求解流程。
+            </p>
+            <div class="project-meta">Updated Aug 16, 2026</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/OrderedConcurrentPool"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag original">Original</span>
+              <span class="tag">C++17</span>
+              <span class="tag">MIT</span>
+              <span class="tag">Concurrency</span>
+            </div>
+            <h3>OrderedConcurrentPool</h3>
+            <p>
+              C++17 header-only 有序并发 worker pool，用于 batch job
+              并发执行并严格保持输出顺序，包含测试、CMake 包和 CI 验证。
+            </p>
+            <div class="project-meta">Updated Aug 6, 2026</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/virtuoso-bridge-lite"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag fork">Fork / Study</span>
+              <span class="tag">Python</span>
+              <span class="tag">MIT</span>
+              <span class="tag">Virtuoso</span>
+            </div>
+            <h3>virtuoso-bridge-lite</h3>
+            <p>
+              学习 LLM Agent 与 Cadence Virtuoso 连接的基础设施项目，理解
+              agentic analog / mixed-signal design 的工具接口。
+            </p>
+            <div class="project-meta">Updated Jul 19, 2026</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/AnalogGym"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag fork">Fork / Study</span>
+              <span class="tag">Analog EDA</span>
+              <span class="tag">BSD-3-Clause</span>
+            </div>
+            <h3>AnalogGym</h3>
+            <p>
+              模拟电路设计自动化平台环境的学习仓库，用于观察自动化设计任务、实验接口和评测流程如何组织。
+            </p>
+            <div class="project-meta">Updated Jun 11, 2026</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/efficient-kan_study"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag fork">Fork / Study</span>
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">KAN</span>
+            </div>
+            <h3>efficient-kan_study</h3>
+            <p>
+              efficient-kan 的学习 fork，用于了解 Kolmogorov-Arnold Network 的
+              PyTorch 实现和可解释建模思路。
+            </p>
+            <div class="project-meta">Updated Aug 1, 2024</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/git_study"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag study">Study</span>
+              <span class="tag">Git</span>
+              <span class="tag">Practice</span>
+            </div>
+            <h3>git_study</h3>
+            <p>
+              面向 Git
+              初学流程的练习仓库，记录版本控制的基础操作、协作概念和命令实践。
+            </p>
+            <div class="project-meta">Updated Jun 26, 2026</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/CPP_Notes"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag fork">Fork / Study</span>
+              <span class="tag">C++</span>
+              <span class="tag">Notes</span>
+            </div>
+            <h3>CPP_Notes</h3>
+            <p>
+              C++ 学习笔记 fork，用于补充语言基础、工程实践和后续 C++
+              组件开发中的知识整理。
+            </p>
+            <div class="project-meta">Updated Oct 26, 2024</div>
+            <div class="project-link">View repository</div>
+          </a>
+
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/Algorithm_fromBilibili"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag fork">Fork / Study</span>
+              <span class="tag">C++</span>
+              <span class="tag">Algorithms</span>
+            </div>
+            <h3>Algorithm_fromBilibili</h3>
+            <p>
+              数据结构与算法基础课程的自学笔记和 C++
+              实现，用于夯实算法、数据结构与基础编码训练。
+            </p>
+            <div class="project-meta">Updated Nov 30, 2021</div>
+            <div class="project-link">View repository</div>
+          </a>
+        </div>
+      </section>
+
+      <section id="notes">
+        <div class="section-heading">
+          <h2>技术笔记索引</h2>
+          <p>
+            后续可以把这些条目扩展成独立 Markdown 页面或子目录，作为 GitHub
+            Pages 上的长期知识库入口。
+          </p>
+        </div>
+
+        <div class="note-list">
+          <article class="note-card">
+            <div class="note-label">Xyce / SPICE</div>
+            <div>
+              <h3>源码阅读、构建安装与功能验证</h3>
+              <p>
+                对应 Xyce_study 仓库中的 notes、functional-verification 和
+                scripts，可逐步整理成可复现的学习路线。
+              </p>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-label">EDA Bridge</div>
+            <div>
+              <h3>LLM Agent 与 Virtuoso 的连接方式</h3>
+              <p>
+                围绕 virtuoso-bridge-lite 记录 Cadence Virtuoso
+                自动化接口、agent 工作流和模拟电路任务编排。
+              </p>
+            </div>
+          </article>
+
+          <article class="note-card">
+            <div class="note-label">Software</div>
+            <div>
+              <h3>C++ 并发组件与工程化验证</h3>
+              <p>
+                从 OrderedConcurrentPool 延伸到 CMake
+                包管理、CI、sanitizer、benchmark 和可复用库边界设计。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-box">
+          <div>
+            <h2>Contact &amp; Collaboration</h2>
+            <p>
+              目前公开联系入口以 GitHub
+              为主。主页会继续补充更稳定的项目文档、技术笔记、简历或学术资料链接。
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a
+              class="button"
+              href="https://github.com/Snappersontheprowl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @Snappersontheprowl
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> ZhengLecheng</span>
+        <span>Built with plain HTML &amp; CSS · Hosted on GitHub Pages</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
