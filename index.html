@@ -32,7 +32,9 @@
     <main class="container">
       <div class="hero" id="about">
         <div>
-          <div class="eyebrow">Analog IC · EDA · SPICE · AI for EDA</div>
+          <div class="eyebrow">
+            Open Analog Circuits · EDA · SPICE · AI for EDA
+          </div>
 
           <h1>
             ZhengLecheng
@@ -40,15 +42,15 @@
           </h1>
 
           <p class="hero-subtitle">
-            关注模拟集成电路设计自动化、SPICE 类仿真器源码学习、EDA
+            关注开放模拟/混合信号电路资源整理、SPICE 类仿真器源码学习、EDA
             工具链基础设施，以及面向电路设计的智能化工作流。
           </p>
 
           <p class="hero-summary">
             这个主页会同步整理我的公开 GitHub
-            项目、学习仓库和技术笔记。目前主要围绕 Xyce、Cadence Virtuoso
-            相关桥接工具、模拟电路设计自动化平台、C++
-            并发基础设施与机器学习模型展开。
+            项目、学习仓库和技术笔记。目前重点围绕开放模拟电路资产索引、Xyce
+            源码学习、Cadence Virtuoso 相关桥接工具、模拟电路设计自动化平台和
+            C++ / Python 工程基础设施展开。
           </p>
 
           <div class="hero-actions">
@@ -85,6 +87,10 @@
               <strong>20</strong>
               <span>following</span>
             </div>
+            <div class="stat">
+              <strong>164</strong>
+              <span>stars</span>
+            </div>
           </div>
         </aside>
       </div>
@@ -93,7 +99,7 @@
         <div class="section-heading">
           <h2>当前关注方向</h2>
           <p>
-            从公开仓库可以看出，最近的学习和建设重点集中在模拟电路设计自动化、仿真器、EDA
+            从公开仓库可以看出，最近的学习和建设重点集中在开放模拟电路资源、仿真器、EDA
             连接层与可复用软件组件。
           </p>
         </div>
@@ -101,6 +107,16 @@
         <div class="interest-grid">
           <article class="interest-card">
             <strong>01</strong>
+            <h3>开放模拟电路资源索引</h3>
+            <p>
+              通过 Awesome-Open-Analog-Circuits
+              汇总开源模拟/混合信号电路资产，优先关注原理图、网表、测试平台、版图、GDS
+              与流片状态。
+            </p>
+          </article>
+
+          <article class="interest-card">
+            <strong>02</strong>
             <h3>SPICE / Xyce 仿真器学习</h3>
             <p>
               通过 Xyce
@@ -109,20 +125,11 @@
           </article>
 
           <article class="interest-card">
-            <strong>02</strong>
-            <h3>Analog EDA 工作流</h3>
-            <p>
-              关注 Cadence Virtuoso 桥接、AnalogGym
-              等项目，探索模拟/混合信号电路设计中的自动化接口和实验环境。
-            </p>
-          </article>
-
-          <article class="interest-card">
             <strong>03</strong>
-            <h3>C++ / Python 基础设施</h3>
+            <h3>Analog EDA 工作流与基础设施</h3>
             <p>
-              使用 C++17 构建可复用并发组件，用 Python
-              连接工具链、实验平台和机器学习模型，服务工程验证与研究探索。
+              关注 Cadence Virtuoso 桥接、AnalogGym、C++17 并发组件和 Python
+              工具链，探索模拟电路任务的自动化接口和实验环境。
             </p>
           </article>
         </div>
@@ -130,14 +137,37 @@
 
       <section id="projects">
         <div class="section-heading">
-          <h2>公开项目与学习仓库</h2>
+          <h2>精选项目与学习仓库</h2>
           <p>
-            原创仓库和 fork / study 仓库分开标记。更新时间来自当前 GitHub
-            公开页面和仓库 API。
+            原创仓库和 fork / study 仓库分开标记。内容根据当前 GitHub
+            账号主页、公开仓库页和仓库 API 刷新。
           </p>
         </div>
 
         <div class="project-grid">
+          <a
+            class="project-card"
+            href="https://github.com/Snappersontheprowl/Awesome-Open-Analog-Circuits"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="tags">
+              <span class="tag original">Original</span>
+              <span class="tag">Analog IC</span>
+              <span class="tag">Open PDK</span>
+              <span class="tag">Catalog</span>
+              <span class="tag">MIT</span>
+            </div>
+            <h3>Awesome-Open-Analog-Circuits</h3>
+            <p>
+              面向电路资产的开放模拟/混合信号 IC 资源索引，按原理图、SPICE /
+              Spectre 网表、测试平台、版图/GDS、PEX、PDK
+              和流片状态整理可复用电路。
+            </p>
+            <div class="project-meta">Updated Aug 16, 2026</div>
+            <div class="project-link">View repository</div>
+          </a>
+
           <a
             class="project-card"
             href="https://github.com/Snappersontheprowl/Xyce_study"
@@ -280,26 +310,6 @@
             <div class="project-meta">Updated Oct 26, 2024</div>
             <div class="project-link">View repository</div>
           </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/Algorithm_fromBilibili"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag fork">Fork / Study</span>
-              <span class="tag">C++</span>
-              <span class="tag">Algorithms</span>
-            </div>
-            <h3>Algorithm_fromBilibili</h3>
-            <p>
-              数据结构与算法基础课程的自学笔记和 C++
-              实现，用于夯实算法、数据结构与基础编码训练。
-            </p>
-            <div class="project-meta">Updated Nov 30, 2021</div>
-            <div class="project-link">View repository</div>
-          </a>
         </div>
       </section>
 
@@ -313,6 +323,17 @@
         </div>
 
         <div class="note-list">
+          <article class="note-card">
+            <div class="note-label">Open Circuits</div>
+            <div>
+              <h3>开放模拟电路资产索引与分级</h3>
+              <p>
+                对应 Awesome-Open-Analog-Circuits
+                中的资源表和贡献规则，可继续沉淀为按电路类型、PDK、物理设计完整度划分的导航页面。
+              </p>
+            </div>
+          </article>
+
           <article class="note-card">
             <div class="note-label">Xyce / SPICE</div>
             <div>
@@ -330,18 +351,8 @@
               <h3>LLM Agent 与 Virtuoso 的连接方式</h3>
               <p>
                 围绕 virtuoso-bridge-lite 记录 Cadence Virtuoso
-                自动化接口、agent 工作流和模拟电路任务编排。
-              </p>
-            </div>
-          </article>
-
-          <article class="note-card">
-            <div class="note-label">Software</div>
-            <div>
-              <h3>C++ 并发组件与工程化验证</h3>
-              <p>
-                从 OrderedConcurrentPool 延伸到 CMake
-                包管理、CI、sanitizer、benchmark 和可复用库边界设计。
+                自动化接口、agent
+                工作流和模拟电路任务编排，并和模拟设计自动化实验环境衔接。
               </p>
             </div>
           </article>
