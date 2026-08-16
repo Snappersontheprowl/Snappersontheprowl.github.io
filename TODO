@@ -1,0 +1,11 @@
+# TODO
+
+## Deferred
+
+- Add stable local profile imagery under `assets/images/` if a non-GitHub-hosted avatar is preferred.
+- Consider moving project metadata into a small data file only if the project list becomes hard to maintain in `index.html`.
+- Add a real long-form notes page under `docs/` when technical notes are ready for public browsing.
+
+## Monitor
+
+- Keep public GitHub repository counts and project update dates aligned with the profile page when refreshing homepage content.
