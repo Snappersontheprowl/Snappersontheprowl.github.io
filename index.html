@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ZhengLecheng / Snappersontheprowl 的个人主页，关注 SPICE 仿真基础设施、开放模拟电路资源、Xyce 源码学习、Cadence Virtuoso 桥接和 Analog EDA。"
+      content="ZhengLecheng / Snappersontheprowl builds open-source infrastructure for analog IC design automation, including SPICEUnion, ordered simulation execution, open analog circuit resources, and simulator study notes."
     />
     <meta name="author" content="ZhengLecheng" />
-    <title>ZhengLecheng | SPICE Infrastructure · Open Analog IC · EDA</title>
+    <title>ZhengLecheng | Open Infrastructure for Analog EDA</title>
 
     <link rel="stylesheet" href="assets/css/site.css" />
   </head>
@@ -19,10 +19,10 @@
         <nav class="site-nav">
           <a class="brand" href="#top">ZhengLecheng</a>
           <div class="nav-links">
-            <a href="#focus">Focus</a>
-            <a href="#featured">Featured</a>
+            <a href="#overview">Overview</a>
+            <a href="#spiceunion">SPICEUnion</a>
+            <a href="#work">Work</a>
             <a href="#repositories">Repositories</a>
-            <a href="#notes">Notes</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
@@ -33,39 +33,47 @@
       <section class="hero-section">
         <div class="container hero">
           <div class="hero-copy">
-            <p class="eyebrow">SPICE Infrastructure · Open Analog IC · EDA</p>
+            <p class="eyebrow">Open-source analog EDA infrastructure</p>
             <h1>
-              ZhengLecheng
-              <span>@Snappersontheprowl</span>
+              Building practical tools for analog circuit simulation workflows.
+              <span>ZhengLecheng · @Snappersontheprowl</span>
             </h1>
             <p class="hero-lede">
-              围绕模拟电路设计自动化做底层工具、开放电路资源整理和仿真器源码学习。
-              当前主线包括 SPICEUnion、OrderedConcurrentPool、Xyce_study、
-              Awesome-Open-Analog-Circuits 与 Virtuoso/AnalogGym 相关学习仓库。
+              I build and study infrastructure around analog IC design
+              automation: running real SPICE-class simulators, reading
+              structured results, organizing open circuit assets, and connecting
+              EDA tools into reproducible workflows.
             </p>
             <div class="hero-actions">
               <a
                 class="button primary"
-                href="https://github.com/Snappersontheprowl"
+                href="https://github.com/Snappersontheprowl/SPICEUnion"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub Profile
+                Explore SPICEUnion
               </a>
-              <a class="button" href="#repositories">All Public Repos</a>
+              <a class="button" href="#repositories">View all repositories</a>
             </div>
           </div>
 
-          <aside class="profile-panel" aria-label="GitHub public profile">
-            <img
-              class="avatar"
-              src="https://avatars.githubusercontent.com/u/127485553?v=4"
-              alt="Snappersontheprowl GitHub avatar"
-            />
+          <aside class="profile-panel" aria-label="Public project summary">
+            <div class="profile-hero">
+              <img
+                class="avatar"
+                src="https://avatars.githubusercontent.com/u/127485553?v=4"
+                alt="Snappersontheprowl GitHub avatar"
+              />
+              <div>
+                <p class="profile-name">SPICEUnion</p>
+                <p class="profile-meta">
+                  C++17 simulator execution and result-reading infrastructure.
+                </p>
+              </div>
+            </div>
+
             <div class="profile-body">
-              <p class="profile-name">ZhengLecheng</p>
-              <p class="profile-meta">GitHub: Snappersontheprowl</p>
-              <dl class="stats">
+              <dl class="stats" aria-label="Public GitHub statistics">
                 <div class="stat">
                   <dt>Repos</dt>
                   <dd>8</dd>
@@ -83,62 +91,147 @@
                   <dd>20</dd>
                 </div>
               </dl>
-              <p class="profile-note">Public snapshot refreshed Sep 5, 2026.</p>
+              <a
+                class="panel-link"
+                href="https://github.com/Snappersontheprowl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open GitHub profile
+              </a>
             </div>
           </aside>
         </div>
       </section>
 
-      <section class="section" id="focus">
+      <section class="section" id="overview">
         <div class="container">
           <div class="section-heading">
-            <p class="section-kicker">Current Direction</p>
-            <h2>把模拟电路设计里的“仿真、资源、自动化”连成可复用基础设施。</h2>
+            <p class="section-kicker">What visitors should know first</p>
+            <h2>
+              My work sits between analog design tasks and the software needed
+              to run them reliably.
+            </h2>
           </div>
 
           <div class="focus-grid">
             <article class="focus-card">
               <span>01</span>
-              <h3>Simulator execution infrastructure</h3>
+              <h3>Execution layer for real simulators</h3>
               <p>
-                SPICEUnion 面向 EDA 参数扫描和设计空间探索，封装真实 Spectre /
-                Ngspice 执行、并发任务调度、结果读取和统一 ResultIR。
+                The main project, SPICEUnion, targets parameter sweeps and
+                design-space exploration where many Spectre / Ngspice runs must
+                be launched, isolated, tracked, and converted into typed
+                results.
               </p>
             </article>
 
             <article class="focus-card">
               <span>02</span>
-              <h3>Open analog circuit assets</h3>
+              <h3>Circuit-first open analog resources</h3>
               <p>
-                Awesome-Open-Analog-Circuits 按电路资产本身组织资源，关注
-                schematic、SPICE/Spectre
-                netlist、testbench、layout/GDS、PEX、PDK 和 silicon 状态。
+                Awesome-Open-Analog-Circuits organizes reusable analog and
+                mixed-signal IC resources by circuit artifact completeness:
+                schematics, netlists, testbenches, layout, GDS, PEX, PDK, and
+                silicon status.
               </p>
             </article>
 
             <article class="focus-card">
               <span>03</span>
-              <h3>EDA source learning and bridges</h3>
+              <h3>Grounded study of EDA systems</h3>
               <p>
-                Xyce_study、virtuoso-bridge-lite、AnalogGym
-                分别对应仿真器源码学习、Cadence Virtuoso
-                连接层理解和模拟设计自动化环境观察。
+                Xyce_study, virtuoso-bridge-lite, and AnalogGym are public
+                evidence of the systems being studied: simulator internals,
+                Virtuoso bridge workflows, and analog design automation
+                environments.
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="featured">
+      <section class="section primary-project" id="spiceunion">
+        <div class="container">
+          <div class="primary-layout">
+            <div class="primary-copy">
+              <p class="section-kicker">Primary project</p>
+              <h2>
+                SPICEUnion: a reusable execution layer for simulation-heavy
+                analog EDA workflows.
+              </h2>
+              <p>
+                Circuit optimization, sizing, and verification loops often need
+                hundreds or thousands of simulations. SPICEUnion packages the
+                loop as an embeddable library: submit parameterized cases, run
+                real simulators concurrently, isolate failures, and read results
+                through one structured model.
+              </p>
+              <div class="hero-actions">
+                <a
+                  class="button primary"
+                  href="https://github.com/Snappersontheprowl/SPICEUnion"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open SPICEUnion
+                </a>
+                <a
+                  class="button"
+                  href="https://github.com/Snappersontheprowl/OrderedConcurrentPool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Execution pool dependency
+                </a>
+              </div>
+            </div>
+
+            <div class="capability-grid" aria-label="SPICEUnion capabilities">
+              <div>
+                <strong>Execution</strong>
+                <span
+                  >Spectre / Ngspice backends, ordered batch execution, per-task
+                  isolation.</span
+                >
+              </div>
+              <div>
+                <strong>Results</strong>
+                <span
+                  >Scalar, DC sweep, AC response, transient waveform, PSFASCII
+                  and ngspice parsing.</span
+                >
+              </div>
+              <div>
+                <strong>Interfaces</strong>
+                <span
+                  >C++17 public API, optional pybind11 bindings,
+                  packaging-oriented repository layout.</span
+                >
+              </div>
+              <div>
+                <strong>Engineering</strong>
+                <span
+                  >CI, simulator discovery, diagnostics, and no proprietary PDK
+                  bundled by default.</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work">
         <div class="container">
           <div class="section-heading split">
             <div>
-              <p class="section-kicker">Featured Work</p>
-              <h2>近期最能体现方向的 4 个仓库。</h2>
+              <p class="section-kicker">Supporting work</p>
+              <h2>Projects that explain the broader direction.</h2>
             </div>
             <p>
-              下面聚焦原创工具和持续学习主线；完整 8
-              个公开仓库在下一节逐项列出。
+              These repositories make the public profile legible: a core
+              library, a concurrency component, simulator source study, and a
+              circuit resource catalog.
             </p>
           </div>
 
@@ -182,9 +275,9 @@
               </div>
               <h3>OrderedConcurrentPool</h3>
               <p>
-                有序并发 worker pool：固定数量 worker 并发处理 batch
-                job，同时严格保持结果输出顺序，
-                适合成为仿真批处理等上层工具的稳定执行组件。
+                Header-only ordered concurrent worker pool. It runs batch jobs
+                concurrently while preserving result order, which makes it a
+                clean fit for deterministic simulation pipelines.
               </p>
               <div class="project-meta">C++ · MIT · Updated Aug 23, 2026</div>
               <span class="project-link">View repository</span>
@@ -204,9 +297,9 @@
               </div>
               <h3>Xyce_study</h3>
               <p>
-                Xyce
-                仿真器源码、构建流程和基础验证方法的学习工作区，重点记录网表解析、
-                器件建模、矩阵装配、非线性求解和分析流程。
+                Public notes and verification workspace for understanding the
+                Xyce simulator: netlist parsing, device models, matrix assembly,
+                nonlinear solving, build notes, and reproducible checks.
               </p>
               <div class="project-meta">
                 Csound Document · Updated Aug 17, 2026
@@ -228,9 +321,10 @@
               </div>
               <h3>Awesome-Open-Analog-Circuits</h3>
               <p>
-                以电路资源本身为中心的开源模拟/混合信号 IC
-                索引，优先回答“是否有原理图、
-                网表、testbench、版图/GDS、PEX、PDK、流片与实测信息”。
+                A circuit-first index of open analog and mixed-signal IC
+                resources. It prioritizes reusable artifacts over paper lists:
+                schematic, netlist, testbench, layout, GDS, PEX, PDK, and
+                measured or tapeout status.
               </p>
               <div class="project-meta">
                 Python · MIT · Updated Aug 16, 2026
@@ -245,12 +339,15 @@
         <div class="container">
           <div class="section-heading split">
             <div>
-              <p class="section-kicker">Complete Coverage</p>
-              <h2>当前 GitHub 账号主页可见的 8 个公开仓库。</h2>
+              <p class="section-kicker">Public repositories</p>
+              <h2>
+                All 8 repositories currently visible on the GitHub profile.
+              </h2>
             </div>
             <p>
-              排序按当前公开仓库页的更新时间。Fork / study
-              仓库明确标出，避免把学习材料误写成原创项目。
+              Ordered by the public repositories page. Original work, forks, and
+              study repositories are labeled so visitors can judge what to open
+              first.
             </p>
           </div>
 
@@ -264,7 +361,10 @@
               <span class="repo-index">01</span>
               <span class="repo-main">
                 <strong>SPICEUnion</strong>
-                <small>Cpp实现的模拟电路底层仿真集成接口。</small>
+                <small
+                  >Analog simulation execution and result-reading
+                  infrastructure.</small
+                >
               </span>
               <span class="repo-tags">
                 <em>Original</em>
@@ -283,7 +383,10 @@
               <span class="repo-index">02</span>
               <span class="repo-main">
                 <strong>OrderedConcurrentPool</strong>
-                <small>保序并发池，服务 batch job 的并发执行与有序返回。</small>
+                <small
+                  >Ordered concurrent worker pool for deterministic batch
+                  execution.</small
+                >
               </span>
               <span class="repo-tags">
                 <em>Original</em>
@@ -303,8 +406,8 @@
               <span class="repo-main">
                 <strong>virtuoso-bridge-lite</strong>
                 <small
-                  >LLM-Agent 与 Cadence Virtuoso 之间的桥接基础设施学习
-                  fork。</small
+                  >Study fork for LLM-agent and Cadence Virtuoso bridge
+                  workflows.</small
                 >
               </span>
               <span class="repo-tags">
@@ -324,7 +427,10 @@
               <span class="repo-index">04</span>
               <span class="repo-main">
                 <strong>Xyce_study</strong>
-                <small>学习 Xyce 仿真器源码、构建流程和功能验证方法。</small>
+                <small
+                  >Xyce source-reading, build, and functional-verification
+                  notes.</small
+                >
               </span>
               <span class="repo-tags">
                 <em>Original</em>
@@ -343,7 +449,7 @@
               <span class="repo-index">05</span>
               <span class="repo-main">
                 <strong>Snappersontheprowl.github.io</strong>
-                <small>当前个人 GitHub Pages 主页维护仓库。</small>
+                <small>Source repository for this public portfolio site.</small>
               </span>
               <span class="repo-tags">
                 <em>Original</em>
@@ -363,8 +469,8 @@
               <span class="repo-main">
                 <strong>Awesome-Open-Analog-Circuits</strong>
                 <small
-                  >搜集汇总整理 Analog IC 相关各种已开源在 GitHub
-                  上的电路。</small
+                  >Curated index of open analog and mixed-signal IC circuit
+                  assets.</small
                 >
               </span>
               <span class="repo-tags">
@@ -384,7 +490,10 @@
               <span class="repo-index">07</span>
               <span class="repo-main">
                 <strong>git_study</strong>
-                <small>面向 Git 初学者的练习与学习仓库。</small>
+                <small
+                  >Git practice repository kept as part of the public learning
+                  trail.</small
+                >
               </span>
               <span class="repo-tags">
                 <em class="study">Study</em>
@@ -402,7 +511,10 @@
               <span class="repo-index">08</span>
               <span class="repo-main">
                 <strong>AnalogGym</strong>
-                <small>模拟电路设计自动化平台环境学习 fork。</small>
+                <small
+                  >Study fork of an analog circuit design automation
+                  environment.</small
+                >
               </span>
               <span class="repo-tags">
                 <em class="fork">Fork / Study</em>
@@ -419,39 +531,41 @@
         <div class="container">
           <div class="section-heading split">
             <div>
-              <p class="section-kicker">Notes Roadmap</p>
-              <h2>后续适合沉淀为公开笔记的几条线。</h2>
+              <p class="section-kicker">Reading map</p>
+              <h2>Where the public work is heading.</h2>
             </div>
             <p>
-              主页现在先作为索引；当内容稳定后，可以把这些方向展开到 `docs/`
-              下的独立页面。
+              For visitors, this section frames how the repositories connect
+              rather than exposing local maintenance details.
             </p>
           </div>
 
           <div class="note-grid">
             <article class="note-card">
               <span>Execution</span>
-              <h3>仿真批处理、ResultIR 与 simulator session</h3>
+              <h3>Simulation execution and result models</h3>
               <p>
-                从 SPICEUnion 延伸到真实 EDA simulator 调度、结果目录约定、PSF /
-                raw 读取和异常隔离。
+                SPICEUnion is the main thread: simulator sessions, result
+                directories, typed result IR, parser boundaries, and failure
+                isolation.
               </p>
             </article>
 
             <article class="note-card">
               <span>Circuits</span>
-              <h3>开放模拟电路资产索引与完整度分级</h3>
+              <h3>Open analog circuit discovery</h3>
               <p>
-                从 Awesome-Open-Analog-Circuits 延伸到
-                op-amp、BGR、LDO、ADC、PLL 等电路类型的资源地图。
+                Awesome-Open-Analog-Circuits maps reusable resources by circuit
+                type, artifact completeness, open PDK, and silicon evidence.
               </p>
             </article>
 
             <article class="note-card">
               <span>Source</span>
-              <h3>Xyce 源码阅读与功能验证路线</h3>
+              <h3>Simulator internals and EDA bridges</h3>
               <p>
-                围绕网表解析、器件模型、矩阵装配、非线性求解和本地可复现验证用例组织长期笔记。
+                Xyce_study and Virtuoso-related work provide grounding in how
+                real EDA systems parse, solve, run, and expose automation hooks.
               </p>
             </article>
           </div>
@@ -462,7 +576,10 @@
         <div class="container contact-box">
           <div>
             <p class="section-kicker">Contact</p>
-            <h2>公开入口先保持简洁：GitHub 是主要联系和项目展示点。</h2>
+            <h2>
+              For collaboration or project questions, GitHub is the clearest
+              public entry point.
+            </h2>
           </div>
           <a
             class="button primary"
