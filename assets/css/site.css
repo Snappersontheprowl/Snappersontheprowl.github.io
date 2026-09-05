@@ -19,6 +19,7 @@
   --glow-blue: #b4cef8;
   --circuit: #6ba99f;
   --card-glow: rgba(15, 118, 110, 0.08);
+  --pointer-glow: rgba(15, 118, 110, 0.13);
 }
 
 * {
@@ -676,6 +677,7 @@ h2 {
     --glow-blue: #203f7e;
     --circuit: #448c87;
     --card-glow: rgba(126, 218, 199, 0.09);
+    --pointer-glow: rgba(126, 218, 199, 0.18);
     --bg: #101720;
     --surface: #17212e;
     --surface-muted: #1e2b39;
@@ -746,8 +748,7 @@ h2 {
   z-index: -1;
   inset: 0;
   pointer-events: none;
-  opacity: 0.45;
-  mask-image: linear-gradient(90deg, transparent, #000 65%);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.25), #000 65%);
 }
 .circuit-field svg {
   width: 100%;
@@ -756,20 +757,22 @@ h2 {
 .circuit-traces {
   stroke: var(--circuit);
   stroke-width: 1;
+  opacity: 0.3;
 }
 .circuit-nodes {
   stroke: var(--teal);
   fill: var(--bg);
   stroke-width: 1.5;
+  opacity: 0.5;
 }
 .circuit-signals {
   stroke: var(--teal);
-  stroke-width: 2.5;
+  stroke-width: 3;
   stroke-linecap: round;
 }
 .circuit-signals path {
-  stroke-dasharray: 28 1100;
-  animation: signal-travel 8s linear infinite paused;
+  stroke-dasharray: 32 260;
+  animation: signal-travel 5s linear infinite paused;
 }
 .circuit-signals path:nth-child(2) {
   animation-delay: -3s;
@@ -811,7 +814,7 @@ h2 {
   pointer-events: none;
   background: radial-gradient(
     280px circle at var(--pointer-x, 50%) var(--pointer-y, 0%),
-    var(--card-glow),
+    var(--pointer-glow),
     transparent 75%
   );
   opacity: 0;
@@ -859,7 +862,7 @@ h2 {
   justify-self: start;
   margin-top: 18px;
   padding: 6px 10px;
-  min-height: 36px;
+  min-height: 44px;
   font: inherit;
   font-size: 0.75rem;
   color: var(--muted);
@@ -875,6 +878,11 @@ h2 {
 .motion-toggle:hover {
   border-color: var(--teal);
   color: var(--text);
+}
+.motion-toggle:disabled {
+  cursor: default;
+  color: var(--muted);
+  border-style: dashed;
 }
 .button {
   transition:
@@ -916,7 +924,7 @@ h2 {
 }
 @keyframes signal-travel {
   to {
-    stroke-dashoffset: -1128;
+    stroke-dashoffset: -292;
   }
 }
 [data-motion="paused"] .project-card,
@@ -931,7 +939,7 @@ h2 {
 }
 @media (max-width: 760px) {
   .circuit-field {
-    opacity: 0.25;
+    opacity: 0.5;
   }
   .hero-section::before,
   .hero-section::after {

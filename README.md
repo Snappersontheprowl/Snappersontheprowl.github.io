@@ -45,7 +45,7 @@ Project descriptions are checked against public GitHub READMEs. Do not infer cre
 
 ## Visual Effects
 
-Both pages use a circuit-inspired hero with animated signal traces, ambient color, gradient title accents, pointer-following card illumination, and one-time scroll entry animations. The profile card includes a localized Pause/Resume effects button. System reduced-motion preferences disable motion; the button is hidden in that mode. On touch devices, card illumination and hover movement are disabled.
+Both pages use a circuit-inspired hero with animated signal traces, ambient color, gradient title accents, pointer-following card illumination, and one-time scroll entry animations. The profile card includes a localized Pause/Resume effects button. System reduced-motion preferences disable motion; the control remains visible with an explanatory disabled label. Touch input does not trigger card illumination; an attached mouse can still illuminate cards on a computer with a touch screen.
 
 Content is visible in the original HTML, so JavaScript is not needed for reading or language navigation. Animation work pauses when the document is hidden, and hero background animation also pauses outside the viewport. See [visual effects](docs/visual-effects.md) for implementation boundaries and checks.
 

@@ -3,7 +3,9 @@ if (yearElement) yearElement.textContent = new Date().getFullYear();
 
 const root = document.documentElement;
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+const finePointer = window.matchMedia(
+  "(any-hover: hover) and (any-pointer: fine)",
+);
 const motionToggle = document.querySelector(".motion-toggle");
 const hero = document.querySelector(".hero-section");
 const cards = document.querySelectorAll(
@@ -30,15 +32,23 @@ function syncMotion() {
     entryAnimations.clear();
     clearPointerEffects();
   }
-  motionToggle.hidden = reducedMotion.matches;
-  motionToggle.setAttribute("aria-pressed", String(paused));
-  motionToggle.textContent = chinese
-    ? paused
-      ? "开启动效"
-      : "暂停动效"
-    : paused
-      ? "Resume effects"
-      : "Pause effects";
+  motionToggle.hidden = false;
+  motionToggle.disabled = reducedMotion.matches;
+  motionToggle.setAttribute(
+    "aria-pressed",
+    String(paused || reducedMotion.matches),
+  );
+  motionToggle.textContent = reducedMotion.matches
+    ? chinese
+      ? "系统已关闭动效"
+      : "Motion disabled by system"
+    : chinese
+      ? paused
+        ? "开启动效"
+        : "暂停动效"
+      : paused
+        ? "Resume effects"
+        : "Pause effects";
 }
 
 motionToggle.addEventListener("click", () => {

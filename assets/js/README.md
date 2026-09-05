@@ -12,6 +12,7 @@
 
 - `data-motion` on the root controls whether decorative animation runs; user pause, reduced-motion preference, and document visibility determine its value.
 - Intersection observers track hero visibility and start entry animations once. Entry effects never hide content in the stylesheet.
-- Pointer updates use at most one pending animation-frame callback and run only for fine pointers with motion enabled.
+- Pointer updates use at most one pending animation-frame callback and run only when a connected fine/hover pointer is available and motion is enabled. Touch events are excluded even on mixed-input computers.
 - Pausing cancels active entry animations and pointer effects. The Chinese/English pause label follows the document language.
 - Both homepages include the `.motion-toggle` control and `.hero-section` expected by this script.
+- Reduced-motion mode leaves the control visible with a disabled, localized explanation instead of hiding it. Changing the system preference updates the state immediately.
