@@ -129,6 +129,11 @@ h3 {
   background: var(--surface-muted);
   text-decoration: none;
 }
+.nav-links .language-link {
+  border: 1px solid var(--line);
+  color: var(--teal);
+  white-space: nowrap;
+}
 .hero-section {
   padding: 72px 0;
   background-image:
@@ -162,6 +167,17 @@ h1 {
   line-height: 1.08;
   letter-spacing: -0.045em;
   text-wrap: balance;
+}
+:lang(zh-CN) h1,
+:lang(zh-CN) h2 {
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+:lang(zh-CN) .hero-lede,
+:lang(zh-CN) .project-card p,
+:lang(zh-CN) .primary-copy > p,
+:lang(zh-CN) .study-feature p {
+  line-height: 1.85;
 }
 .hero-lede {
   max-width: 600px;

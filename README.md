@@ -11,7 +11,8 @@ The site is intentionally kept as a build-free static site so GitHub Pages can s
 ├── AGENTS.md              Project collaboration rules for Codex sessions
 ├── README.md              Repository overview and maintenance workflow
 ├── TODO                   Active and deferred maintenance notes
-├── index.html             Homepage content and document metadata
+├── index.html             English homepage and document metadata
+├── index.zh-cn.html       Simplified Chinese homepage and document metadata
 ├── assets/
 │   ├── README.md          Asset ownership and naming rules
 │   ├── css/
@@ -29,7 +30,7 @@ The site is intentionally kept as a build-free static site so GitHub Pages can s
 
 ## Maintenance Boundaries
 
-- `index.html` owns semantic content, public links, metadata, and page section order.
+- `index.html` and `index.zh-cn.html` own the English and Simplified Chinese content, public links, metadata, and page section order. Keep project facts, links, and section IDs synchronized.
 - `assets/css/site.css` owns layout, visual style, responsive behavior, and dark-mode styling.
 - `assets/js/site.js` owns small non-essential behavior. The homepage should remain readable without JavaScript.
 - `assets/images/` is for local image assets that are meant to be served by GitHub Pages.
@@ -37,9 +38,17 @@ The site is intentionally kept as a build-free static site so GitHub Pages can s
 
 ## Homepage Content
 
-The English homepage introduces ZhengLecheng through selected projects, study notes, and a public GitHub contact entry. SPICEUnion is the main project feature; OrderedConcurrentPool and Awesome-Open-Analog-Circuits are supporting projects. Xyce study notes and the two upstream forks are presented separately, with explicit fork attribution. Git practice and the site's source remain available as secondary links.
+The English and Simplified Chinese homepages introduce ZhengLecheng through selected projects, study notes, and a public GitHub contact entry. SPICEUnion is the main project feature; OrderedConcurrentPool and Awesome-Open-Analog-Circuits are supporting projects. Xyce study notes and the two upstream forks are presented separately, with explicit fork attribution. Git practice and the site's source remain available as secondary links.
 
 Project descriptions are checked against public GitHub READMEs. Do not infer credentials, affiliations, or original authorship of upstream projects. Changing profile statistics and repository update dates are left on GitHub rather than copied into the page.
+
+## Languages
+
+- English: `index.html` (the default homepage).
+- Simplified Chinese: `index.zh-cn.html`.
+- Each page has a visible language link in the top navigation. Switching works without JavaScript and does not depend on browser language detection.
+- Localized homepage files use `index.<language-tag>.html`, with lowercase language tags in filenames (for example, `zh-cn`). Shared CSS and JavaScript stay under `assets/`.
+- When changing content, update both pages, including descriptions, navigation, image alternatives, and accessible labels. Keep published project names and upstream attribution intact.
 
 ## Local Preview
 
@@ -55,6 +64,7 @@ Then open:
 
 ```text
 http://localhost:8000/
+http://localhost:8000/index.zh-cn.html
 ```
 
 Save files and refresh the browser to inspect changes. Stop the server with `Ctrl+C`. When using VSCode over SSH, forward port `8000` through the Ports panel.
@@ -64,24 +74,24 @@ Save files and refresh the browser to inspect changes. Stop the server with `Ctr
 Format the static files:
 
 ```bash
-npx --yes prettier --write index.html assets/css/site.css assets/js/site.js README.md assets/**/*.md docs/**/*.md
+npx --yes prettier --write index.html index.zh-cn.html assets/css/site.css assets/js/site.js README.md assets/**/*.md docs/**/*.md
 ```
 
 Check formatting:
 
 ```bash
-npx --yes prettier --check index.html assets/css/site.css assets/js/site.js README.md assets/**/*.md docs/**/*.md
+npx --yes prettier --check index.html index.zh-cn.html assets/css/site.css assets/js/site.js README.md assets/**/*.md docs/**/*.md
 ```
 
 Validate HTML:
 
 ```bash
-npx --yes html-validate --rule void-style:off --rule doctype-style:off index.html
+npx --yes html-validate --rule void-style:off --rule doctype-style:off index.html index.zh-cn.html
 ```
 
 `void-style` and `doctype-style` are disabled because Prettier's HTML output and `html-validate`'s default style preferences disagree on those formatting-only rules.
 
-For layout changes, inspect 320px and 390px mobile widths, a 768px tablet, and a 1440px desktop in light and dark modes. Check project-name wrapping, avatar loading, navigation links, keyboard focus, and anchor positions. Mobile navigation stays visible in normal document flow; desktop navigation is sticky. Reduced-motion preferences disable smooth scrolling. Core content and navigation work without JavaScript.
+Check language switching in both directions and verify each document language and alternate-language link. For layout changes, inspect both pages at 320px and 390px mobile widths, a 768px tablet, and a 1440px desktop in light and dark modes. Check project-name wrapping, avatar loading, navigation links, keyboard focus, and anchor positions. Mobile navigation stays visible in normal document flow; desktop navigation is sticky. Reduced-motion preferences disable smooth scrolling. Core content and navigation work without JavaScript.
 
 ## Publishing
 

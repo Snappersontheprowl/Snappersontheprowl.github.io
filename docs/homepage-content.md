@@ -6,7 +6,7 @@ Last checked: 2026-09-05. This document records editorial choices and public evi
 
 The homepage introduces ZhengLecheng / Snappersontheprowl through analog EDA tools, open circuit resources, and simulator study notes. This positioning is an editorial synthesis of the public repositories, not a quoted professional title. No employer, degree, affiliation, location, or private contact details are inferred.
 
-Retain English as the main page language. Identify the SPICEUnion usage guide as Chinese at the link. Keep the page usable without JavaScript.
+Keep English at `index.html` and Simplified Chinese at `index.zh-cn.html`, with reciprocal navigation links and alternate-language metadata. Both pages share the same project facts, links, and section IDs. Translate prose and accessible labels while preserving published names. Identify the SPICEUnion usage guide as Chinese at the link. Both pages remain usable without JavaScript.
 
 ## Page order
 
@@ -46,7 +46,7 @@ SPICEUnion is featured because its documented scope connects the simulation and 
 
 ## Rendering acceptance
 
-- Check 320, 390, 768, and 1440 CSS-pixel widths, plus responsive breakpoints when changing layout.
+- Check both language pages at 320, 390, 768, and 1440 CSS-pixel widths, plus responsive breakpoints when changing layout. Verify reciprocal language navigation and Chinese typography.
 - Review light and dark modes, including secondary text, tags, and buttons.
 - Verify no horizontal overflow or clipped project names, visible mobile navigation, loaded avatar, and correct local anchors.
 - Desktop navigation is sticky; navigation at widths up to 760px stays in normal document flow to preserve mobile reading space.
@@ -60,3 +60,9 @@ SPICEUnion is featured because its documented scope connects the simulation and 
 - Section links, Back to top, keyboard skip/focus, reduced motion, no-JavaScript navigation/year, and links to all eight public repositories passed.
 - axe reported no WCAG A/AA violations in the selected rule sets. It left three hero text elements over the grid and two decorative arrows for manual review. The grid/background color calculation gave a minimum 4.51:1 text contrast in light mode and 7.89:1 in dark mode; arrow colors also passed. This is a scoped check, not a full accessibility certification.
 - HTML validation, Prettier, and Git whitespace checks passed. Verification was local; publishing configuration and other browser engines were not tested.
+
+## Simplified Chinese addition — 2026-09-05
+
+- Added a complete Chinese page with translated metadata, navigation, descriptions, image alternative text, and accessible labels. Shared project URLs and section IDs match the English page.
+- Both pages passed overflow/navigation checks at 320, 390, 640, 760, 768, 980, and 1440px in light and dark modes. Chinese desktop and mobile screenshots were visually reviewed.
+- Reciprocal language switching passed with JavaScript disabled. Section links, Back to top, HTML validation, and formatting also passed.

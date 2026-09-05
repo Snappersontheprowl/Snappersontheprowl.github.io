@@ -10,3 +10,4 @@
 - Keep light/dark colors in the shared custom properties at the top of the stylesheet and its dark-mode block; avoid hard-coded secondary text colors in components.
 - Navigation stays sticky above 760px and visible in normal document flow on smaller screens. Anchor scroll padding must follow the header behavior.
 - Preserve visible keyboard focus, long-name wrapping, and reduced-motion support when changing components.
+- Both language pages share this stylesheet. Scope Chinese typography adjustments with `:lang(zh-CN)` and verify the language link at mobile and desktop widths.
