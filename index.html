@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ZhengLecheng / Snappersontheprowl 的个人主页，关注模拟集成电路、EDA、SPICE 仿真器源码学习、AI for EDA 与软件基础设施。"
+      content="ZhengLecheng / Snappersontheprowl 的个人主页，关注 SPICE 仿真基础设施、开放模拟电路资源、Xyce 源码学习、Cadence Virtuoso 桥接和 Analog EDA。"
     />
     <meta name="author" content="ZhengLecheng" />
-    <title>ZhengLecheng | Analog IC · EDA · AI for EDA</title>
+    <title>ZhengLecheng | SPICE Infrastructure · Open Analog IC · EDA</title>
 
     <link rel="stylesheet" href="assets/css/site.css" />
   </head>
 
   <body>
-    <header>
+    <header class="site-header">
       <div class="container">
-        <nav>
-          <a class="brand" href="#">ZhengLecheng</a>
+        <nav class="site-nav">
+          <a class="brand" href="#top">ZhengLecheng</a>
           <div class="nav-links">
-            <a href="#about">About</a>
             <a href="#focus">Focus</a>
-            <a href="#projects">Projects</a>
+            <a href="#featured">Featured</a>
+            <a href="#repositories">Repositories</a>
             <a href="#notes">Notes</a>
             <a href="#contact">Contact</a>
           </div>
@@ -29,361 +29,454 @@
       </div>
     </header>
 
-    <main class="container">
-      <div class="hero" id="about">
-        <div>
-          <div class="eyebrow">
-            Open Analog Circuits · EDA · SPICE · AI for EDA
+    <main id="top">
+      <section class="hero-section">
+        <div class="container hero">
+          <div class="hero-copy">
+            <p class="eyebrow">SPICE Infrastructure · Open Analog IC · EDA</p>
+            <h1>
+              ZhengLecheng
+              <span>@Snappersontheprowl</span>
+            </h1>
+            <p class="hero-lede">
+              围绕模拟电路设计自动化做底层工具、开放电路资源整理和仿真器源码学习。
+              当前主线包括 SPICEUnion、OrderedConcurrentPool、Xyce_study、
+              Awesome-Open-Analog-Circuits 与 Virtuoso/AnalogGym 相关学习仓库。
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button primary"
+                href="https://github.com/Snappersontheprowl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub Profile
+              </a>
+              <a class="button" href="#repositories">All Public Repos</a>
+            </div>
           </div>
 
-          <h1>
-            ZhengLecheng
-            <span class="handle">@Snappersontheprowl</span>
-          </h1>
+          <aside class="profile-panel" aria-label="GitHub public profile">
+            <img
+              class="avatar"
+              src="https://avatars.githubusercontent.com/u/127485553?v=4"
+              alt="Snappersontheprowl GitHub avatar"
+            />
+            <div class="profile-body">
+              <p class="profile-name">ZhengLecheng</p>
+              <p class="profile-meta">GitHub: Snappersontheprowl</p>
+              <dl class="stats">
+                <div class="stat">
+                  <dt>Repos</dt>
+                  <dd>8</dd>
+                </div>
+                <div class="stat">
+                  <dt>Stars</dt>
+                  <dd>164</dd>
+                </div>
+                <div class="stat">
+                  <dt>Followers</dt>
+                  <dd>4</dd>
+                </div>
+                <div class="stat">
+                  <dt>Following</dt>
+                  <dd>20</dd>
+                </div>
+              </dl>
+              <p class="profile-note">Public snapshot refreshed Sep 5, 2026.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-          <p class="hero-subtitle">
-            关注开放模拟/混合信号电路资源整理、SPICE 类仿真器源码学习、EDA
-            工具链基础设施，以及面向电路设计的智能化工作流。
-          </p>
+      <section class="section" id="focus">
+        <div class="container">
+          <div class="section-heading">
+            <p class="section-kicker">Current Direction</p>
+            <h2>把模拟电路设计里的“仿真、资源、自动化”连成可复用基础设施。</h2>
+          </div>
 
-          <p class="hero-summary">
-            这个主页会同步整理我的公开 GitHub
-            项目、学习仓库和技术笔记。目前重点围绕开放模拟电路资产索引、Xyce
-            源码学习、Cadence Virtuoso 相关桥接工具、模拟电路设计自动化平台和
-            C++ / Python 工程基础设施展开。
-          </p>
+          <div class="focus-grid">
+            <article class="focus-card">
+              <span>01</span>
+              <h3>Simulator execution infrastructure</h3>
+              <p>
+                SPICEUnion 面向 EDA 参数扫描和设计空间探索，封装真实 Spectre /
+                Ngspice 执行、并发任务调度、结果读取和统一 ResultIR。
+              </p>
+            </article>
 
-          <div class="hero-actions">
+            <article class="focus-card">
+              <span>02</span>
+              <h3>Open analog circuit assets</h3>
+              <p>
+                Awesome-Open-Analog-Circuits 按电路资产本身组织资源，关注
+                schematic、SPICE/Spectre
+                netlist、testbench、layout/GDS、PEX、PDK 和 silicon 状态。
+              </p>
+            </article>
+
+            <article class="focus-card">
+              <span>03</span>
+              <h3>EDA source learning and bridges</h3>
+              <p>
+                Xyce_study、virtuoso-bridge-lite、AnalogGym
+                分别对应仿真器源码学习、Cadence Virtuoso
+                连接层理解和模拟设计自动化环境观察。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured">
+        <div class="container">
+          <div class="section-heading split">
+            <div>
+              <p class="section-kicker">Featured Work</p>
+              <h2>近期最能体现方向的 4 个仓库。</h2>
+            </div>
+            <p>
+              下面聚焦原创工具和持续学习主线；完整 8
+              个公开仓库在下一节逐项列出。
+            </p>
+          </div>
+
+          <div class="featured-grid">
             <a
-              class="button primary"
-              href="https://github.com/Snappersontheprowl"
+              class="project-card feature"
+              href="https://github.com/Snappersontheprowl/SPICEUnion"
               target="_blank"
               rel="noopener noreferrer"
             >
-              GitHub Profile
+              <div class="tags">
+                <span class="tag original">Original</span>
+                <span class="tag">C++17</span>
+                <span class="tag">Python bindings</span>
+                <span class="tag">Apache-2.0</span>
+              </div>
+              <h3>SPICEUnion</h3>
+              <p>
+                C++17 simulator execution and result-reading infrastructure
+                library for EDA-style parameter sweeps and design-space
+                exploration. It coordinates Spectre / Ngspice tasks through
+                ordered worker pools and exposes structured simulation results.
+              </p>
+              <div class="project-meta">
+                C++ · Apache-2.0 · Updated Sep 5, 2026
+              </div>
+              <span class="project-link">View repository</span>
             </a>
-            <a class="button" href="#projects">查看项目</a>
+
+            <a
+              class="project-card"
+              href="https://github.com/Snappersontheprowl/OrderedConcurrentPool"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="tags">
+                <span class="tag original">Original</span>
+                <span class="tag">C++17</span>
+                <span class="tag">Header-only</span>
+                <span class="tag">MIT</span>
+              </div>
+              <h3>OrderedConcurrentPool</h3>
+              <p>
+                有序并发 worker pool：固定数量 worker 并发处理 batch
+                job，同时严格保持结果输出顺序，
+                适合成为仿真批处理等上层工具的稳定执行组件。
+              </p>
+              <div class="project-meta">C++ · MIT · Updated Aug 23, 2026</div>
+              <span class="project-link">View repository</span>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/Snappersontheprowl/Xyce_study"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="tags">
+                <span class="tag original">Original</span>
+                <span class="tag">Xyce</span>
+                <span class="tag">SPICE</span>
+                <span class="tag">Notes</span>
+              </div>
+              <h3>Xyce_study</h3>
+              <p>
+                Xyce
+                仿真器源码、构建流程和基础验证方法的学习工作区，重点记录网表解析、
+                器件建模、矩阵装配、非线性求解和分析流程。
+              </p>
+              <div class="project-meta">
+                Csound Document · Updated Aug 17, 2026
+              </div>
+              <span class="project-link">View repository</span>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/Snappersontheprowl/Awesome-Open-Analog-Circuits"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="tags">
+                <span class="tag original">Original</span>
+                <span class="tag">Analog IC</span>
+                <span class="tag">Catalog</span>
+                <span class="tag">MIT</span>
+              </div>
+              <h3>Awesome-Open-Analog-Circuits</h3>
+              <p>
+                以电路资源本身为中心的开源模拟/混合信号 IC
+                索引，优先回答“是否有原理图、
+                网表、testbench、版图/GDS、PEX、PDK、流片与实测信息”。
+              </p>
+              <div class="project-meta">
+                Python · MIT · Updated Aug 16, 2026
+              </div>
+              <span class="project-link">View repository</span>
+            </a>
           </div>
         </div>
+      </section>
 
-        <aside class="profile-panel" aria-label="GitHub 公开资料">
-          <img
-            class="avatar"
-            src="https://avatars.githubusercontent.com/u/127485553?v=4"
-            alt="Snappersontheprowl GitHub avatar"
-          />
-          <p class="profile-name">ZhengLecheng</p>
-          <p class="profile-meta">GitHub: Snappersontheprowl</p>
-          <div class="stats" role="group" aria-label="GitHub public stats">
-            <div class="stat">
-              <strong>8</strong>
-              <span>public repos</span>
+      <section class="section repo-section" id="repositories">
+        <div class="container">
+          <div class="section-heading split">
+            <div>
+              <p class="section-kicker">Complete Coverage</p>
+              <h2>当前 GitHub 账号主页可见的 8 个公开仓库。</h2>
             </div>
-            <div class="stat">
-              <strong>5</strong>
-              <span>followers</span>
-            </div>
-            <div class="stat">
-              <strong>20</strong>
-              <span>following</span>
-            </div>
-            <div class="stat">
-              <strong>164</strong>
-              <span>stars</span>
-            </div>
+            <p>
+              排序按当前公开仓库页的更新时间。Fork / study
+              仓库明确标出，避免把学习材料误写成原创项目。
+            </p>
           </div>
-        </aside>
-      </div>
 
-      <section id="focus">
-        <div class="section-heading">
-          <h2>当前关注方向</h2>
-          <p>
-            从公开仓库可以看出，最近的学习和建设重点集中在开放模拟电路资源、仿真器、EDA
-            连接层与可复用软件组件。
-          </p>
-        </div>
+          <div class="repo-list">
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/SPICEUnion"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">01</span>
+              <span class="repo-main">
+                <strong>SPICEUnion</strong>
+                <small>Cpp实现的模拟电路底层仿真集成接口。</small>
+              </span>
+              <span class="repo-tags">
+                <em>Original</em>
+                <em>C++</em>
+                <em>Apache-2.0</em>
+              </span>
+              <span class="repo-date">Sep 5, 2026</span>
+            </a>
 
-        <div class="interest-grid">
-          <article class="interest-card">
-            <strong>01</strong>
-            <h3>开放模拟电路资源索引</h3>
-            <p>
-              通过 Awesome-Open-Analog-Circuits
-              汇总开源模拟/混合信号电路资产，优先关注原理图、网表、测试平台、版图、GDS
-              与流片状态。
-            </p>
-          </article>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/OrderedConcurrentPool"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">02</span>
+              <span class="repo-main">
+                <strong>OrderedConcurrentPool</strong>
+                <small>保序并发池，服务 batch job 的并发执行与有序返回。</small>
+              </span>
+              <span class="repo-tags">
+                <em>Original</em>
+                <em>C++</em>
+                <em>MIT</em>
+              </span>
+              <span class="repo-date">Aug 23, 2026</span>
+            </a>
 
-          <article class="interest-card">
-            <strong>02</strong>
-            <h3>SPICE / Xyce 仿真器学习</h3>
-            <p>
-              通过 Xyce
-              源码学习仓库记录网表解析、器件建模、矩阵装配、非线性求解、构建安装与功能验证流程。
-            </p>
-          </article>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/virtuoso-bridge-lite"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">03</span>
+              <span class="repo-main">
+                <strong>virtuoso-bridge-lite</strong>
+                <small
+                  >LLM-Agent 与 Cadence Virtuoso 之间的桥接基础设施学习
+                  fork。</small
+                >
+              </span>
+              <span class="repo-tags">
+                <em class="fork">Fork / Study</em>
+                <em>Python</em>
+                <em>MIT</em>
+              </span>
+              <span class="repo-date">Aug 17, 2026</span>
+            </a>
 
-          <article class="interest-card">
-            <strong>03</strong>
-            <h3>Analog EDA 工作流与基础设施</h3>
-            <p>
-              关注 Cadence Virtuoso 桥接、AnalogGym、C++17 并发组件和 Python
-              工具链，探索模拟电路任务的自动化接口和实验环境。
-            </p>
-          </article>
-        </div>
-      </section>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/Xyce_study"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">04</span>
+              <span class="repo-main">
+                <strong>Xyce_study</strong>
+                <small>学习 Xyce 仿真器源码、构建流程和功能验证方法。</small>
+              </span>
+              <span class="repo-tags">
+                <em>Original</em>
+                <em>Notes</em>
+                <em>SPICE</em>
+              </span>
+              <span class="repo-date">Aug 17, 2026</span>
+            </a>
 
-      <section id="projects">
-        <div class="section-heading">
-          <h2>精选项目与学习仓库</h2>
-          <p>
-            原创仓库和 fork / study 仓库分开标记。内容根据当前 GitHub
-            账号主页、公开仓库页和仓库 API 刷新。
-          </p>
-        </div>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/Snappersontheprowl.github.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">05</span>
+              <span class="repo-main">
+                <strong>Snappersontheprowl.github.io</strong>
+                <small>当前个人 GitHub Pages 主页维护仓库。</small>
+              </span>
+              <span class="repo-tags">
+                <em>Original</em>
+                <em>HTML</em>
+                <em>GitHub Pages</em>
+              </span>
+              <span class="repo-date">Aug 16, 2026</span>
+            </a>
 
-        <div class="project-grid">
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/Awesome-Open-Analog-Circuits"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag original">Original</span>
-              <span class="tag">Analog IC</span>
-              <span class="tag">Open PDK</span>
-              <span class="tag">Catalog</span>
-              <span class="tag">MIT</span>
-            </div>
-            <h3>Awesome-Open-Analog-Circuits</h3>
-            <p>
-              面向电路资产的开放模拟/混合信号 IC 资源索引，按原理图、SPICE /
-              Spectre 网表、测试平台、版图/GDS、PEX、PDK
-              和流片状态整理可复用电路。
-            </p>
-            <div class="project-meta">Updated Aug 16, 2026</div>
-            <div class="project-link">View repository</div>
-          </a>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/Awesome-Open-Analog-Circuits"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">06</span>
+              <span class="repo-main">
+                <strong>Awesome-Open-Analog-Circuits</strong>
+                <small
+                  >搜集汇总整理 Analog IC 相关各种已开源在 GitHub
+                  上的电路。</small
+                >
+              </span>
+              <span class="repo-tags">
+                <em>Original</em>
+                <em>Python</em>
+                <em>MIT</em>
+              </span>
+              <span class="repo-date">Aug 16, 2026</span>
+            </a>
 
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/Xyce_study"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag original">Original</span>
-              <span class="tag">Xyce</span>
-              <span class="tag">SPICE</span>
-              <span class="tag">Notes</span>
-            </div>
-            <h3>Xyce_study</h3>
-            <p>
-              用于学习 Xyce
-              仿真器源码、构建流程和基础验证方法的个人工作区，关注网表解析、器件建模、矩阵装配和求解流程。
-            </p>
-            <div class="project-meta">Updated Aug 16, 2026</div>
-            <div class="project-link">View repository</div>
-          </a>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/git_study"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">07</span>
+              <span class="repo-main">
+                <strong>git_study</strong>
+                <small>面向 Git 初学者的练习与学习仓库。</small>
+              </span>
+              <span class="repo-tags">
+                <em class="study">Study</em>
+                <em>Git</em>
+              </span>
+              <span class="repo-date">Jun 11, 2026</span>
+            </a>
 
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/OrderedConcurrentPool"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag original">Original</span>
-              <span class="tag">C++17</span>
-              <span class="tag">MIT</span>
-              <span class="tag">Concurrency</span>
-            </div>
-            <h3>OrderedConcurrentPool</h3>
-            <p>
-              C++17 header-only 有序并发 worker pool，用于 batch job
-              并发执行并严格保持输出顺序，包含测试、CMake 包和 CI 验证。
-            </p>
-            <div class="project-meta">Updated Aug 6, 2026</div>
-            <div class="project-link">View repository</div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/virtuoso-bridge-lite"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag fork">Fork / Study</span>
-              <span class="tag">Python</span>
-              <span class="tag">MIT</span>
-              <span class="tag">Virtuoso</span>
-            </div>
-            <h3>virtuoso-bridge-lite</h3>
-            <p>
-              学习 LLM Agent 与 Cadence Virtuoso 连接的基础设施项目，理解
-              agentic analog / mixed-signal design 的工具接口。
-            </p>
-            <div class="project-meta">Updated Jul 19, 2026</div>
-            <div class="project-link">View repository</div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/AnalogGym"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag fork">Fork / Study</span>
-              <span class="tag">Analog EDA</span>
-              <span class="tag">BSD-3-Clause</span>
-            </div>
-            <h3>AnalogGym</h3>
-            <p>
-              模拟电路设计自动化平台环境的学习仓库，用于观察自动化设计任务、实验接口和评测流程如何组织。
-            </p>
-            <div class="project-meta">Updated Jun 11, 2026</div>
-            <div class="project-link">View repository</div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/efficient-kan_study"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag fork">Fork / Study</span>
-              <span class="tag">Python</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">KAN</span>
-            </div>
-            <h3>efficient-kan_study</h3>
-            <p>
-              efficient-kan 的学习 fork，用于了解 Kolmogorov-Arnold Network 的
-              PyTorch 实现和可解释建模思路。
-            </p>
-            <div class="project-meta">Updated Aug 1, 2024</div>
-            <div class="project-link">View repository</div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/git_study"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag study">Study</span>
-              <span class="tag">Git</span>
-              <span class="tag">Practice</span>
-            </div>
-            <h3>git_study</h3>
-            <p>
-              面向 Git
-              初学流程的练习仓库，记录版本控制的基础操作、协作概念和命令实践。
-            </p>
-            <div class="project-meta">Updated Jun 26, 2026</div>
-            <div class="project-link">View repository</div>
-          </a>
-
-          <a
-            class="project-card"
-            href="https://github.com/Snappersontheprowl/CPP_Notes"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="tags">
-              <span class="tag fork">Fork / Study</span>
-              <span class="tag">C++</span>
-              <span class="tag">Notes</span>
-            </div>
-            <h3>CPP_Notes</h3>
-            <p>
-              C++ 学习笔记 fork，用于补充语言基础、工程实践和后续 C++
-              组件开发中的知识整理。
-            </p>
-            <div class="project-meta">Updated Oct 26, 2024</div>
-            <div class="project-link">View repository</div>
-          </a>
+            <a
+              class="repo-row"
+              href="https://github.com/Snappersontheprowl/AnalogGym"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="repo-index">08</span>
+              <span class="repo-main">
+                <strong>AnalogGym</strong>
+                <small>模拟电路设计自动化平台环境学习 fork。</small>
+              </span>
+              <span class="repo-tags">
+                <em class="fork">Fork / Study</em>
+                <em>Python</em>
+                <em>BSD-3-Clause</em>
+              </span>
+              <span class="repo-date">Oct 29, 2025</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      <section id="notes">
-        <div class="section-heading">
-          <h2>技术笔记索引</h2>
-          <p>
-            后续可以把这些条目扩展成独立 Markdown 页面或子目录，作为 GitHub
-            Pages 上的长期知识库入口。
-          </p>
-        </div>
-
-        <div class="note-list">
-          <article class="note-card">
-            <div class="note-label">Open Circuits</div>
+      <section class="section" id="notes">
+        <div class="container">
+          <div class="section-heading split">
             <div>
-              <h3>开放模拟电路资产索引与分级</h3>
-              <p>
-                对应 Awesome-Open-Analog-Circuits
-                中的资源表和贡献规则，可继续沉淀为按电路类型、PDK、物理设计完整度划分的导航页面。
-              </p>
+              <p class="section-kicker">Notes Roadmap</p>
+              <h2>后续适合沉淀为公开笔记的几条线。</h2>
             </div>
-          </article>
+            <p>
+              主页现在先作为索引；当内容稳定后，可以把这些方向展开到 `docs/`
+              下的独立页面。
+            </p>
+          </div>
 
-          <article class="note-card">
-            <div class="note-label">Xyce / SPICE</div>
-            <div>
-              <h3>源码阅读、构建安装与功能验证</h3>
+          <div class="note-grid">
+            <article class="note-card">
+              <span>Execution</span>
+              <h3>仿真批处理、ResultIR 与 simulator session</h3>
               <p>
-                对应 Xyce_study 仓库中的 notes、functional-verification 和
-                scripts，可逐步整理成可复现的学习路线。
+                从 SPICEUnion 延伸到真实 EDA simulator 调度、结果目录约定、PSF /
+                raw 读取和异常隔离。
               </p>
-            </div>
-          </article>
+            </article>
 
-          <article class="note-card">
-            <div class="note-label">EDA Bridge</div>
-            <div>
-              <h3>LLM Agent 与 Virtuoso 的连接方式</h3>
+            <article class="note-card">
+              <span>Circuits</span>
+              <h3>开放模拟电路资产索引与完整度分级</h3>
               <p>
-                围绕 virtuoso-bridge-lite 记录 Cadence Virtuoso
-                自动化接口、agent
-                工作流和模拟电路任务编排，并和模拟设计自动化实验环境衔接。
+                从 Awesome-Open-Analog-Circuits 延伸到
+                op-amp、BGR、LDO、ADC、PLL 等电路类型的资源地图。
               </p>
-            </div>
-          </article>
+            </article>
+
+            <article class="note-card">
+              <span>Source</span>
+              <h3>Xyce 源码阅读与功能验证路线</h3>
+              <p>
+                围绕网表解析、器件模型、矩阵装配、非线性求解和本地可复现验证用例组织长期笔记。
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="contact">
-        <div class="contact-box">
+      <section class="section contact-section" id="contact">
+        <div class="container contact-box">
           <div>
-            <h2>Contact &amp; Collaboration</h2>
-            <p>
-              目前公开联系入口以 GitHub
-              为主。主页会继续补充更稳定的项目文档、技术笔记、简历或学术资料链接。
-            </p>
+            <p class="section-kicker">Contact</p>
+            <h2>公开入口先保持简洁：GitHub 是主要联系和项目展示点。</h2>
           </div>
-
-          <div class="contact-actions">
-            <a
-              class="button"
-              href="https://github.com/Snappersontheprowl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @Snappersontheprowl
-            </a>
-          </div>
+          <a
+            class="button primary"
+            href="https://github.com/Snappersontheprowl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @Snappersontheprowl
+          </a>
         </div>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <div class="container footer-inner">
         <span>© <span id="year"></span> ZhengLecheng</span>
         <span>Built with plain HTML &amp; CSS · Hosted on GitHub Pages</span>
