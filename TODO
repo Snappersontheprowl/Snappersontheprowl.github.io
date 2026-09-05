@@ -8,4 +8,8 @@
 
 ## Monitor
 
-- Keep public GitHub repository counts, star counts, and project update dates aligned with the profile page when refreshing homepage content.
+- Recheck public project capabilities and fork attribution against GitHub READMEs when refreshing homepage content; keep changing profile statistics on GitHub.
+
+## Archive index
+
+- [Homepage content and sources](docs/homepage-content.md): public-profile revision, content hierarchy, and rendering acceptance criteria.

@@ -1,6 +1,10 @@
 # Docs
 
-This directory is reserved for site-maintenance notes and future long-form pages.
+This directory contains site-maintenance notes and can host future long-form pages.
+
+## Documents
+
+- [Homepage content and sources](homepage-content.md): public evidence, project placement, attribution, and rendering acceptance checks.
 
 ## Naming Rules
 
