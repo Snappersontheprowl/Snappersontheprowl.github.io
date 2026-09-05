@@ -15,6 +15,10 @@
   --header: rgba(245, 247, 248, 0.95);
   --shadow: 0 18px 48px rgba(24, 39, 50, 0.06);
   --max-width: 1120px;
+  --glow-cyan: #a8e6dc;
+  --glow-blue: #b4cef8;
+  --circuit: #6ba99f;
+  --card-glow: rgba(15, 118, 110, 0.08);
 }
 
 * {
@@ -668,6 +672,10 @@ h2 {
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --glow-cyan: #15574d;
+    --glow-blue: #203f7e;
+    --circuit: #448c87;
+    --card-glow: rgba(126, 218, 199, 0.09);
     --bg: #101720;
     --surface: #17212e;
     --surface-muted: #1e2b39;
@@ -700,5 +708,265 @@ h2 {
   }
   .button {
     transition: none;
+  }
+}
+
+/* Decorative layers stay behind the content and never intercept input. */
+.hero-section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background-color: var(--bg);
+}
+.hero-section::before,
+.hero-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  opacity: 0.65;
+  animation: ambient-drift 18s ease-in-out infinite alternate paused;
+}
+.hero-section::before {
+  top: -360px;
+  left: -180px;
+  background: radial-gradient(circle, var(--glow-cyan), transparent 68%);
+}
+.hero-section::after {
+  right: -220px;
+  bottom: -380px;
+  background: radial-gradient(circle, var(--glow-blue), transparent 68%);
+  animation-direction: alternate-reverse;
+}
+.circuit-field {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  mask-image: linear-gradient(90deg, transparent, #000 65%);
+}
+.circuit-field svg {
+  width: 100%;
+  height: 100%;
+}
+.circuit-traces {
+  stroke: var(--circuit);
+  stroke-width: 1;
+}
+.circuit-nodes {
+  stroke: var(--teal);
+  fill: var(--bg);
+  stroke-width: 1.5;
+}
+.circuit-signals {
+  stroke: var(--teal);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.circuit-signals path {
+  stroke-dasharray: 28 1100;
+  animation: signal-travel 8s linear infinite paused;
+}
+.circuit-signals path:nth-child(2) {
+  animation-delay: -3s;
+}
+.circuit-signals path:nth-child(3) {
+  animation-delay: -5s;
+}
+[data-motion="running"] .hero-section.is-visible::before,
+[data-motion="running"] .hero-section.is-visible::after,
+[data-motion="running"] .hero-section.is-visible .circuit-signals path {
+  animation-play-state: running;
+}
+.title-accent {
+  color: var(--teal);
+  background: linear-gradient(110deg, var(--teal) 15%, var(--blue) 85%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.profile-panel,
+.primary-project,
+.project-card,
+.study-feature {
+  position: relative;
+  isolation: isolate;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+.profile-panel::before,
+.primary-project::before,
+.project-card::before,
+.study-feature::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    280px circle at var(--pointer-x, 50%) var(--pointer-y, 0%),
+    var(--card-glow),
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+.pointer-active::before {
+  opacity: 1;
+}
+.profile-panel {
+  border-top: 3px solid var(--teal);
+  box-shadow:
+    var(--shadow),
+    0 0 48px var(--card-glow);
+}
+.avatar {
+  outline: 1px solid var(--line);
+  outline-offset: 6px;
+}
+.primary-project {
+  border-top: 3px solid var(--teal);
+}
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-kicker::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--teal);
+}
+.flow-number {
+  display: inline-flex;
+  flex: 0 0 30px;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+}
+.motion-toggle {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 18px;
+  padding: 6px 10px;
+  min-height: 36px;
+  font: inherit;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--surface-muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.motion-toggle:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+.motion-toggle:hover {
+  border-color: var(--teal);
+  color: var(--text);
+}
+.button {
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+.button.primary {
+  box-shadow: 0 6px 20px var(--card-glow);
+}
+.button > span,
+.text-link > span {
+  transition: transform 180ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  [data-motion="running"] .project-card:hover,
+  [data-motion="running"] .profile-panel:hover {
+    transform: translateY(-4px);
+  }
+  .project-card:hover,
+  .primary-project:hover,
+  .study-feature:hover {
+    border-color: var(--teal);
+    box-shadow: var(--shadow);
+  }
+  [data-motion="running"] .button:hover {
+    transform: translateY(-2px);
+  }
+  [data-motion="running"] .button:hover > span,
+  [data-motion="running"] .text-link:hover > span {
+    transform: translate(2px, -2px);
+  }
+}
+@keyframes ambient-drift {
+  to {
+    transform: translate(80px, 40px) scale(1.12);
+  }
+}
+@keyframes signal-travel {
+  to {
+    stroke-dashoffset: -1128;
+  }
+}
+[data-motion="paused"] .project-card,
+[data-motion="paused"] .profile-panel,
+[data-motion="paused"] .primary-project,
+[data-motion="paused"] .study-feature,
+[data-motion="paused"] .button,
+[data-motion="paused"] .button > span,
+[data-motion="paused"] .text-link > span,
+[data-motion="paused"] .pointer-active::before {
+  transition: none;
+}
+@media (max-width: 760px) {
+  .circuit-field {
+    opacity: 0.25;
+  }
+  .hero-section::before,
+  .hero-section::after {
+    width: 440px;
+    height: 440px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before,
+  .hero-section::after,
+  .circuit-signals path {
+    animation: none;
+  }
+  .profile-panel,
+  .primary-project,
+  .project-card,
+  .study-feature,
+  .profile-panel::before,
+  .primary-project::before,
+  .project-card::before,
+  .study-feature::before,
+  .button,
+  .button > span,
+  .text-link > span {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .circuit-field,
+  .hero-section::before,
+  .hero-section::after {
+    display: none;
+  }
+  .title-accent {
+    background: none;
+    -webkit-text-fill-color: currentColor;
   }
 }

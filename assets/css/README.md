@@ -11,3 +11,5 @@
 - Navigation stays sticky above 760px and visible in normal document flow on smaller screens. Anchor scroll padding must follow the header behavior.
 - Preserve visible keyboard focus, long-name wrapping, and reduced-motion support when changing components.
 - Both language pages share this stylesheet. Scope Chinese typography adjustments with `:lang(zh-CN)` and verify the language link at mobile and desktop widths.
+- Circuit art and ambient layers are decorative and never receive pointer input. Effect colors are shared theme variables; motion styles follow root `data-motion` and hero visibility.
+- Keep a static readable presentation for no-JavaScript, reduced-motion, and forced-color environments.

@@ -25,7 +25,8 @@ The site is intentionally kept as a build-free static site so GitHub Pages can s
 │       └── site.js        Small progressive-enhancement script
 └── docs/
     ├── README.md          Documentation index and naming rules
-    └── homepage-content.md  Content sources, editorial choices, and rendering checks
+    ├── homepage-content.md  Content sources, editorial choices, and rendering checks
+    └── visual-effects.md    Decorative effects, motion controls, and verification
 ```
 
 ## Maintenance Boundaries
@@ -41,6 +42,12 @@ The site is intentionally kept as a build-free static site so GitHub Pages can s
 The English and Simplified Chinese homepages introduce ZhengLecheng through selected projects, study notes, and a public GitHub contact entry. SPICEUnion is the main project feature; OrderedConcurrentPool and Awesome-Open-Analog-Circuits are supporting projects. Xyce study notes and the two upstream forks are presented separately, with explicit fork attribution. Git practice and the site's source remain available as secondary links.
 
 Project descriptions are checked against public GitHub READMEs. Do not infer credentials, affiliations, or original authorship of upstream projects. Changing profile statistics and repository update dates are left on GitHub rather than copied into the page.
+
+## Visual Effects
+
+Both pages use a circuit-inspired hero with animated signal traces, ambient color, gradient title accents, pointer-following card illumination, and one-time scroll entry animations. The profile card includes a localized Pause/Resume effects button. System reduced-motion preferences disable motion; the button is hidden in that mode. On touch devices, card illumination and hover movement are disabled.
+
+Content is visible in the original HTML, so JavaScript is not needed for reading or language navigation. Animation work pauses when the document is hidden, and hero background animation also pauses outside the viewport. See [visual effects](docs/visual-effects.md) for implementation boundaries and checks.
 
 ## Languages
 

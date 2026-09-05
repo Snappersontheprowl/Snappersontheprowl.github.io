@@ -32,10 +32,46 @@
 
     <main id="main-content" tabindex="-1">
       <section class="hero-section" aria-labelledby="intro-heading">
+        <div class="circuit-field" aria-hidden="true">
+          <svg viewBox="0 0 1200 600" fill="none" focusable="false">
+            <g class="circuit-traces">
+              <path
+                d="M0 130H140L210 200H390M1200 90H980L910 160H780V280H640"
+              />
+              <path
+                d="M0 470H220L310 380H470V310H610M1200 510H1050L940 400H790"
+              />
+              <path
+                d="M360 600V510L420 450H640L720 530H1200M1200 240H1060L1000 300H910"
+              />
+            </g>
+            <g class="circuit-signals">
+              <path
+                d="M0 130H140L210 200H390M1200 90H980L910 160H780V280H640"
+              />
+              <path
+                d="M0 470H220L310 380H470V310H610M1200 510H1050L940 400H790"
+              />
+              <path
+                d="M360 600V510L420 450H640L720 530H1200M1200 240H1060L1000 300H910"
+              />
+            </g>
+            <g class="circuit-nodes">
+              <circle cx="390" cy="200" r="5" />
+              <circle cx="640" cy="280" r="5" />
+              <circle cx="610" cy="310" r="5" />
+              <circle cx="790" cy="400" r="5" />
+              <circle cx="910" cy="300" r="5" />
+            </g>
+          </svg>
+        </div>
+
         <div class="container hero">
           <div class="hero-copy">
             <p class="eyebrow">模拟集成电路设计 · 开源</p>
-            <h1 id="intro-heading">让模拟电路仿真<br />更易用。</h1>
+            <h1 id="intro-heading">
+              让模拟电路<span class="title-accent">仿真</span><br />更易用。
+            </h1>
             <p class="hero-lede">
               我是
               ZhengLecheng。我开发仿真工具，整理开源电路资源，也记录自己学习模拟
@@ -84,6 +120,14 @@
                 <dd>SPICE 仿真器与 EDA 工作流程</dd>
               </div>
             </dl>
+            <button
+              class="motion-toggle"
+              type="button"
+              aria-pressed="false"
+              hidden
+            >
+              暂停动效
+            </button>
           </aside>
         </div>
       </section>
